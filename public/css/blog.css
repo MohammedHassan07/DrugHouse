@@ -1,0 +1,118 @@
+@import url(../css/var.css);
+@import url(../CSS/var.css);
+
+body {
+
+    background-color: var(--font-color);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header span {
+
+    height: 29em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+    color: var(--font-color-secondary);
+    padding: 27px;
+}
+
+span h1 {
+
+    margin-top: 20px;
+}
+
+#img-drug {
+
+    margin-top: -6em;
+    width: 20em;
+    height: 15em;
+    object-fit: cover;
+}
+
+
+.formula {
+
+    min-width: 75vw;
+    height: 50vh;
+    background-color: var(--font-color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4em;
+    z-index: 2;
+    margin-top: -58px;
+    padding: 30px;
+    margin-top: -6em;
+    gap: 21px;
+}
+
+.v-line {
+
+    height: 14em;
+    width: 2px;
+    background-color: black;
+
+}
+
+main {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2em;
+}
+
+main div {
+
+    margin-bottom: 20px;
+    min-width: 75vw;
+    border-bottom: 2px solid var(--bg-primary);
+}
+
+
+main h3 {
+
+    color: var(--bg-primary);
+}
+
+main p {
+
+    color: #ceceff;
+}
+
+
+.effect {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.effect-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 80vw;
+}
+
+.card {
+
+    background-color: var(--font-color-primary);
+    margin-top: 20px;
+    padding: .3em .6em;
+    border: 2px solid var(--bg-primary);
+    border-radius: 10px;
+    color: #ebebff;
+}

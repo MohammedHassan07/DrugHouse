@@ -1,0 +1,11 @@
+@import url(../css/var.css);
+
+main {
+
+    background: var(--bg-primary);
+}
+
+.container h2, .container h3{
+
+    color: white;
+}

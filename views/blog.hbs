@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="shortcut icon" href="../public/images/" type="image/x-icon">
+
+    <title> Drug House - {{response.drugName}}</title>
+</head>
+
+<body>
+
+    <header>
+
+        <span>
+
+            <img id="img-drug" src="{{response.strucutural_Formula_URL}}" alt="Structure">
+            {{!-- <img id="img-drug" src="../public/Images/drug.jpg" alt=""> --}}
+            <h1>{{response.drugName}}</h1>
+        </span>
+
+        <!-- formula and structure -->
+        <div class="formula">
+
+            <div>
+                <h3>Molecular Formula</h3>
+                <p>{{ response.molecularFomula }}</p>
+            </div>
+            <!-- vertical line -->
+            <div class="v-line"></div>
+
+            <div>
+                <h3>IUPAC Name</h3>
+                <p>{{ response.IUPAC_Name }}</p>
+            </div>
+        </div>
+
+
+    </header>
+
+    <main>
+
+        <!-- Description -->
+        <div>
+            <span>
+
+                <h3>Description</h3>
+            </span>
+            <p>{{response.Description}}</p>
+        </div>
+
+        <!-- Mechanism -->
+        <div>
+            <span>
+
+                <h3>Mechanism</h3>
+            </span>
+            <p>{{ response.Mechanism }}</p>
+        </div>
+
+        <!-- uses -->
+        <div>
+            <span>
+
+                <h3>Uses</h3>
+            </span>
+            <p>{{response.Uses}}</p>
+        </div>
+
+
+    </main>
+
+    <div class="effect">
+
+        <!-- effect -->
+        <div style="margin-bottom: 2.5em;">
+
+            <h3>Effect</h3>
+
+            <div class="effect-container">
+
+                {{!-- {{#each detail.effe}}
+                <div class="card">
+                    {{detail.effet}}
+                </div>
+                {{/each}} --}}
+
+                <!-- card -->
+                <div class="card">
+                    {{response.adverse_Effect}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../javascript/blog.js"></script>
+</body>
+
+</html>
