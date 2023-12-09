@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="shortcut icon" href="../images/drug-logo.png" type="image/x-icon">
+    <title>Drug House</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="container">
+            <ul class="container flex-around p-3">
+
+                <div>
+                    <h2>Drug Dictinoary</h2>
+                </div>
+
+                <div class="container">
+
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </div>
+            </ul>
+        </nav>
+
+        <!-- crousle -->
+        <div class="hero" style="height: 65vh;">
+
+            <div class="hero-body">
+
+                <div>
+                    <h3>Top 10 most anticipated drug launches of 2023</h3>
+                    <p>Despite all of this, Eisai got its FDA approval in early January this year (with the drug
+                        becoming Leqembi), and is hitting the ground running on the commercial side. Last summer, the
+                        company nabbed Eli Lilly's former Alzheimer's and marketing lead Thomas Fagan Jr. for the new
+                        role of vice president, U.S. Alzheimer's disease commercial, to help shore up the drug's launch
+                    </p>
+                </div>
+                <div class="author">
+
+                    <Select id="author">
+                        <option value="Select">Search </option>
+
+                        {{#each category}}
+                        <option value="{{this.category_Name}}">{{this.this.category_Name}}</option>
+                        {{/each}}
+                    </Select>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="container flex-column">
+
+
+
+        <div id="row" class="row">
+
+            {{!-- card --}}
+
+            {{#each medicines }}
+
+            <div class="card">
+                <div class="drug-name">
+
+                    <p>{{this.category}}</p>
+                </div>
+
+                <div class="border">
+                    <img id="card-img" src="{{this.strucutural_Formula_URL}}" alt="Images">
+                </div>
+            </div>
+
+            {{/each}}
+        </div>
+    </main>
+
+    <!-- box for showing drugs details -->
+    <div id="drug-detail-box">
+        <!-- upper -->
+        <div>
+            <div>
+                <div>
+                    <h3 id="drugName">Albuterol</h3>
+                </div>
+                <div>
+                    <img id="drugImg" src="../public/images/drug.jpg" alt="">
+                </div>
+            </div>
+
+            <div></div>
+        </div>
+
+        <!-- middle -->
+        <div>
+            <p>IUPAC Name:</p>
+            <p id="iupacName">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim reprehenderit expedita
+                molestiae ea modi
+                odit.</p>
+        </div>
+
+        <!-- lower -->
+        <div class="container">
+            <div>
+
+                <h4>Dosing:</h4>
+                <!-- <ul>
+                    <li>Lorem ipsum dolor sit amet.</li>
+
+                    <li>Lorem ipsum dolor sit amet.</li>
+                </ul> -->
+                <p id="dosing"></p>
+            </div>
+            <div>
+                <h4>Adverse Effect:</h4>
+                <p id="adverse-effect"></p>
+            </div>
+            <div>
+                <h4>Contraindication:</h4>
+                <!-- <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                </ul> -->
+                <p id="contraindication">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sint.</p>
+            </div>
+            <button id="close-box">Close</button>
+        </div>
+    </div>
+
+    <script src="../javascript/home.js"></script>
+</body>
+
+</html>

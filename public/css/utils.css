@@ -6,6 +6,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-secondary);
+    color: white;
 }
 
 /* position */
@@ -15,7 +17,6 @@
     align-items: center;
     justify-content: center;
 }
-
 
 
 .flex-around {

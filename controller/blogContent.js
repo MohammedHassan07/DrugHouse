@@ -13,8 +13,8 @@ const blogContent = (req, res) => {
         else {
 
             const response = result[0]
-            console.log(response)
-            res.render('blog', { response })
+            res.status(200).json(response)
+
         }
     })
 
@@ -25,15 +25,23 @@ const blogContentUsingId = (req, res) => {
     const id = req.query.id
     const conn = req.conn
 
+    // console.log(id)
+
     const query = `SELECT * FROM Medicines WHERE Id = "${id}"`
 
     conn.query(query, (error, result) => {
 
-        if (error) res.status(500).json({ message: 'Internal Server Error' })
+        if (error) {
+
+            res.status(500).json({ message: 'Internal Server Error' })
+
+            // console.log(error.message)
+        }
+
         else {
 
             res.status(200).send({ result: result[0] })
-
+            console.log(result)
         }
     })
 }
@@ -48,7 +56,7 @@ const blogByAuthor = (req, res) => {
         if (author === 'Select') query = `SELECT * FROM Medicines`
         else query = `SELECT * FROM Medicines WHERE category = "${author}"`
 
-        console.log(author)
+        // console.log(author)
 
         const connection = req.conn
 
@@ -65,8 +73,8 @@ const blogByAuthor = (req, res) => {
         })
 
     } catch (error) {
-    console.log(error.message)
-}
+        console.log(error.message)
+    }
 }
 
 module.exports = { blogContent, blogContentUsingId, blogByAuthor }

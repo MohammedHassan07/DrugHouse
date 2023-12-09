@@ -1,5 +1,6 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
+const hbs = require('hbs')
 
 const { PORT } = require('./config/config')
 const DBConnection = require('./middleware/connectToDB')
@@ -10,7 +11,8 @@ const blogsRoutes =require('./routes/blogsRoutes')
 const app = express()
 
 
-app.set('view engine', 'hbs')
+app.set('view engine', 'html')
+app.engine('html', hbs.__express)
 app.use(express.json())
 app.use(express.static('public'))
 app.use(cookieParser())

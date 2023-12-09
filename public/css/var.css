@@ -1,6 +1,7 @@
 :root {
 
-    --bg-primary: rgb(19, 52, 72);
+    --bg-primary: #0E1015;
+    --bg-secondary: #26354A;
     --btn-bg: rgb(20, 187, 20);
  
 }

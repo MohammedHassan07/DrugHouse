@@ -6,7 +6,7 @@ function getData(connection, query) {
                 reject(error);
             } else {
                 const data = result;
-                console.log('Data from getData:', data);
+                // console.log('Data from getData:', data);
                 resolve(data);
             }
         });
@@ -25,7 +25,7 @@ const home = async (req, res) => {
         const medicines = await getData(connection, medicinesQuery)
         const category = await getData(connection, categoryQuery)
 
-        console.log(medicines, category)
+        // console.log(medicines, category)
 
         // console.log(medicines, category)
         res.render('home', { medicines: medicines, category: category })

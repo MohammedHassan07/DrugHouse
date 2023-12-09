@@ -8,11 +8,37 @@ row.addEventListener('click', async (e) => {
     const card = e.target.closest('.card')
 
     if (card) {
-        const title = card.querySelector('h3').innerText
-        console.log('clicked', title)
+        const title = card.querySelector('p').innerText
+
+        // console.log('clicked', title)
 
         const url = `http://localhost:3000/blog-content?q=${title}`
-        window.open(url, '_blank')
+
+        const res = await getData(url)
+
+        // console.log(typeof res)
+        // console.log(res)
+
+
+        const detailBox = document.getElementById('drug-detail-box')
+        
+        const drugName = document.getElementById('drugName')
+        drugName.innerHTML = res.drugName
+
+        const img = document.getElementById('drugImg').setAttribute('src', `${res.strucutural_Formula_URL}`)
+        const iupacName = document.getElementById('iupacName').innerHTML = res.IUPAC_Name
+        const contraindication = document.getElementById('contraindication').innerHTML = res.IUPAC_Name
+        const adverseEffect = document.getElementById('adverse-effect').innerHTML = res.adverse_Effect
+        const dosing = document.getElementById('dosing').innerHTML = res.adverse_Effect
+
+        detailBox.style.display = 'block'
+        const closeBox = document.getElementById('close-box').addEventListener('click', (e) => {
+
+            e.preventDefault()
+
+            console.log('closed')
+            detailBox.style.display = 'none'
+        })
     }
 })
 
@@ -24,10 +50,10 @@ author.addEventListener('change', async () => {
 
     row.innerHTML = ''
     const authorName = author.value
-    console.log(authorName)
 
-    const res = await getDataByAuthor(authorName)
-    console.log(res)
+    const url = `http://localhost:3000/author/blog-content?author=${authorName}`
+    const res = await getData(url)
+    // console.log(res)
 
 
     res.response.forEach(element => {
@@ -36,32 +62,25 @@ author.addEventListener('change', async () => {
         card.classList.add('card')
 
         card.innerHTML = `
-            <div>
 
-                <div class="author">
-                    <p>${element.Category}</p>
-                </div>
-
-                <div>
-                    <img id="card-img" src="${element.strucutural_Formula_URL}" alt="Images">
-                </div>
-
-                <div class="card-body">
-                    <h3 class="mt-2">${element.drugName}</h3>
-
-                </div>
+            <div class="drug-name">
+                <p>${element.Category}</p>
             </div>
-            
+
+            <div>
+                <img id="card-img" src="${element.strucutural_Formula_URL}" alt="Images">
+            </div>
+ 
         `
         row.appendChild(card)
 
     })
-
 })
 
-async function getDataByAuthor(authorName) {
+// drug-detail-box
 
-    const url = `http://localhost:3000/author/blog-content?author=${authorName}`
+async function getData(url) {
+
 
     const response = await fetch(url, {
 
