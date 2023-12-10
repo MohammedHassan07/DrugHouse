@@ -17,19 +17,21 @@ row.addEventListener('click', async (e) => {
         const res = await getData(url)
 
         // console.log(typeof res)
-        // console.log(res)
+        console.log(res)
 
 
         const detailBox = document.getElementById('drug-detail-box')
         
-        const drugName = document.getElementById('drugName')
+        const drugName = document.getElementById('drug-name')
         drugName.innerHTML = res.drugName
 
-        const img = document.getElementById('drugImg').setAttribute('src', `${res.strucutural_Formula_URL}`)
+        const img = document.getElementById('drug-img').setAttribute('src', `${res.strucutural_Formula_URL}`)
+        const mechanism = document.getElementById('mechanism').innerHTML = res.Mechanism
         const iupacName = document.getElementById('iupacName').innerHTML = res.IUPAC_Name
-        const contraindication = document.getElementById('contraindication').innerHTML = res.IUPAC_Name
+        const molecularFormula = document.getElementById('molecular-formula').innerHTML = res.molecularFomula
+        const uses = document.getElementById('uses').innerHTML = res.Uses
         const adverseEffect = document.getElementById('adverse-effect').innerHTML = res.adverse_Effect
-        const dosing = document.getElementById('dosing').innerHTML = res.adverse_Effect
+        const description = document.getElementById('description').innerHTML = res.Description
 
         detailBox.style.display = 'block'
         const closeBox = document.getElementById('close-box').addEventListener('click', (e) => {

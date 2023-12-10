@@ -2,7 +2,7 @@ const blogContent = (req, res) => {
 
     const conn = req.conn
     const title = req.query.q
-    console.log(title)
+    // console.log(title)
 
     const query = `SELECT * FROM Medicines WHERE category = "${title}"`;
 
@@ -41,7 +41,7 @@ const blogContentUsingId = (req, res) => {
         else {
 
             res.status(200).send({ result: result[0] })
-            console.log(result)
+            // console.log(result)
         }
     })
 }
