@@ -2,6 +2,7 @@ console.log('home.js')
 
 
 const row = document.getElementById('row')
+const detailBox = document.getElementById('drug-detail-box')
 
 row.addEventListener('click', async (e) => {
 
@@ -19,13 +20,10 @@ row.addEventListener('click', async (e) => {
         // console.log(typeof res)
         console.log(res)
 
-
-        const detailBox = document.getElementById('drug-detail-box')
-        
         const drugName = document.getElementById('drug-name')
         drugName.innerHTML = res.drugName
 
-        const img = document.getElementById('drug-img').setAttribute('src', `${res.strucutural_Formula_URL}`)
+        const img = document.getElementById('drug-img').setAttribute('src', `data:image/png;base64, ${res.drugImage}`)
         const mechanism = document.getElementById('mechanism').innerHTML = res.Mechanism
         const iupacName = document.getElementById('iupacName').innerHTML = res.IUPAC_Name
         const molecularFormula = document.getElementById('molecular-formula').innerHTML = res.molecularFomula
@@ -45,38 +43,73 @@ row.addEventListener('click', async (e) => {
 })
 
 
-const author = document.getElementById('author')
+const drugName = document.getElementById('author')
 
-author.addEventListener('change', async () => {
-
+drugName.addEventListener('input', async (e) => {
 
     row.innerHTML = ''
-    const authorName = author.value
+    const drugName = e.data
 
-    const url = `http://localhost:3000/author/blog-content?author=${authorName}`
-    const res = await getData(url)
-    // console.log(res)
+    if (drugName !== null) {
+
+        try {
+
+            // const medicines = detailBox.dataset.medicines
+            const medicines = detailBox.getAttribute('medicines-data')  // needs to fix the medicine is undefined
+            
+            console.log(medicines)
+            console.log(typeof medicines)
+            
+            medicines.map((medicine) => {
+                
+                if (medicine.drugName === drugName.trim().toLowerCase()) {
+                    
+                    const card = document.createElement('div')
+                    card.classList.add('card')
+
+                    card.innerHTML = `
+    
+                <div class="drug-name">
+                    <p>${element.drugName}</p>
+                </div>
+    
+                <div>
+                    <img id="card-img" src="data: image/png; base64, ${element.drugImage}" alt="Images">
+                </div>
+     
+            `
+                    row.appendChild(card)
+
+                }
+            })
+        } catch (error) {
+
+            console.log(error.message)
+        }
+    }
+    // const url = `http://localhost:3000/author/blog-content?author=${drugName}`
+    // const res = await getData(url)
 
 
-    res.response.forEach(element => {
+    // res.response.forEach(element => {
 
-        const card = document.createElement('div')
-        card.classList.add('card')
+    // const card = document.createElement('div')
+    // card.classList.add('card')
 
-        card.innerHTML = `
+    // card.innerHTML = `
 
-            <div class="drug-name">
-                <p>${element.drugName}</p>
-            </div>
+    //     <div class="drug-name">
+    //         <p>${element.drugName}</p>
+    //     </div>
 
-            <div>
-                <img id="card-img" src="${element.strucutural_Formula_URL}" alt="Images">
-            </div>
- 
-        `
-        row.appendChild(card)
+    //     <div>
+    //         <img id="card-img" src="data: image/png; base64, ${element.drugImage}" alt="Images">
+    //     </div>
 
-    })
+    // `
+    // row.appendChild(card)
+
+    // })
 })
 
 // drug-detail-box

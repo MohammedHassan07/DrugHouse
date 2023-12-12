@@ -45,13 +45,8 @@
                 </div>
                 <div class="author">
 
-                    <Select id="author">
-                        <option value="Select">Search </option>
-
-                        {{#each medicines}}
-                        <option value="{{this.drugName}}">{{this.drugName}}</option>
-                        {{/each}}
-                    </Select>
+                    <!-- change it with input -->
+                    <input id="author" style="width: 30%;" type="text" placeholder="Search">
                 </div>
             </div>
 
@@ -75,7 +70,8 @@
                 </div>
 
                 <div class="border" style="height: 10em;">
-                    <img id="card-img" src="{{this.strucutural_Formula_URL}}" alt="Images">
+
+                    <img id="card-img" src="data:image/jpeg;base64, {{this.drugImage}}" alt="Images">
                 </div>
             </div>
 
@@ -84,19 +80,19 @@
     </main>
 
     <!-- box for showing drugs details -->
-    <div id="drug-detail-box">
+    <div id="drug-detail-box" medicines-data="{{medicines}}">
 
         <!-- upper -->
         <div class="container upper">
             <div class="box container flex-column" style="height: 30vh; padding: 14px;">
 
                 <div style="  margin-bottom: 6px; ">
-                    <h3 id="drug-name" style="color: white;">Albuterol</h3>
+                    <h3 id="drug-name" style="color: white;"></h3>
                 </div>
 
                 <div style="  width: 13em;
                 height: 8em;">
-                    <img id="drug-img" src="../images/drug.jpg" alt="">
+                    <img id="drug-img" alt="">
                 </div>
 
             </div>
@@ -105,9 +101,6 @@
 
                 <h3>Mechanism and Action:</h3>
                 <p id="mechanism">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil architecto beatae sequi
-                    repellat consequuntur debitis omnis id ea exercitationem praesentium distinctio, tempore laborum
-                    repellendus tempora delectus ad maxime dolorem eum?
                 </p>
             </div>
         </div>
@@ -119,7 +112,7 @@
             </div>
 
             <div>
-                <p id="iupacName">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim reprehenderit</p>
+                <p id="iupacName"></p>
             </div>
         </div>
 
@@ -129,7 +122,7 @@
             </div>
             <div>
 
-                <p id="molecular-formula">Lorem ipsum dolor sit amet.</p>
+                <p id="molecular-formula"></p>
             </div>
         </div>
 
@@ -139,31 +132,25 @@
             <div class="box">
 
                 <h3>Uses:</h3>
-                <p id="uses">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptatem ratione ullam
-                    molestiae voluptates odio nihil perferendis iusto enim, porro, distinctio, sunt nulla autem
-                    totam quas. Laboriosam dolor culpa molestiae. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, maiores.</p>
-
+                <p id="uses">
             </div>
 
             <div class="box">
                 <h3>Adverse Effect:</h3>
-                <p id="adverse-effect">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum cumque vel
-                    dolore reprehenderit illo nesciunt voluptate est error ducimus perferendis unde quidem ea, quia
-                    commodi adipisci ipsa! Soluta, perspiciatis veritatis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, maiores.</p>
+                <p id="adverse-effect">
             </div>
 
             <div class="box">
                 <h3>About Drug:</h3>
 
-                <p id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sint. Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Adipisci, sit! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, maiores.</p>
+                <p id="description">
             </div>
 
         </div>
         <button id="close-box">X</button>
     </div>
 
-   
+
     <script src="../javascript/home.js"></script>
 </body>
 

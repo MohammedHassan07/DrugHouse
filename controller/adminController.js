@@ -72,7 +72,7 @@ const insertData = (req, res) => {
 
         const myQuery = 'INSERT INTO Medicines (molecularFomula, IUPAC_NAME, Description, Mechanism, uses, adverse_Effect, drugName) VALUES (?, ?, ?, ?, ?, ?, ?)';
 
-        connection.query(myQuery, [drugName, iupacName, molecularFomrula, Description, Mechanism, uses, adverseEffect], (error, result) => {
+        connection.query(myQuery, [molecularFomrula, iupacName, Description, Mechanism, uses, adverseEffect, drugName], (error, result) => {
 
             if (error) console.log(error.message)
             else {

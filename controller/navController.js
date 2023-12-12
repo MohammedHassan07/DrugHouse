@@ -1,3 +1,7 @@
+const path = require('path')
+const fs = require('fs/promises');
+const { response } = require('express');
+
 function getData(connection, query) {
     return new Promise((resolve, reject) => {
         connection.query(query, (error, result) => {
@@ -23,9 +27,32 @@ const home = async (req, res) => {
 
         const medicines = await getData(connection, medicinesQuery)
 
-        // console.log(medicines, category)
+        await Promise.all(medicines.map(async (medicine) => {
 
-        // console.log(medicines, category)
+            const drugImageName = medicine.drugName
+    
+            const imagePath = path.join(__dirname, '/public/images/drugs/', drugImageName + '.png')
+            const pathSegm = path.normalize(imagePath).split(path.sep)
+
+            const controller = pathSegm.indexOf('controller')
+
+            if (controller !== -1) {
+                pathSegm.splice(controller, 1)
+            }
+
+            const newImgPath = pathSegm.join(path.sep)
+    
+            try {
+                
+                const imgBinaryData = await fs.readFile(newImgPath, { encoding: 'base64' })
+                medicine.drugImage = imgBinaryData
+            } catch (error) {
+
+                console.log(error.message)
+            }
+        }))
+        
+
         res.render('home', { medicines: medicines })
 
 

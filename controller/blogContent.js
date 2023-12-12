@@ -1,3 +1,7 @@
+const path = require('path')
+const fs = require('fs/promises')
+const { response } = require('express')
+
 const blogContent = (req, res) => {
 
     const conn = req.conn
@@ -6,15 +10,36 @@ const blogContent = (req, res) => {
 
     const query = `SELECT * FROM Medicines WHERE drugName = "${drugName}"`;
 
-    conn.query(query, (error, result) => {
+    conn.query(query, async (error, result) => {
 
         if (error) console.log(error.message)
 
         else {
-            const response = result[0]
-            // console.log(response)
+            const medicine = result[0]
 
-            res.status(200).json(response)
+            const drugImageName = medicine.drugName
+
+            const imagePath = path.join(__dirname, '/public/images/drugs/', drugImageName + '.png')
+            const pathSegm = path.normalize(imagePath).split(path.sep)
+
+            const controller = pathSegm.indexOf('controller')
+
+            if (controller !== -1) {
+                pathSegm.splice(controller, 1)
+            }
+
+            const newImgPath = pathSegm.join(path.sep)
+
+            try {
+
+                const imgBinaryData = await fs.readFile(newImgPath, { encoding: 'base64' })
+                medicine.drugImage = imgBinaryData
+            } catch (error) {
+
+                console.log(error.message)
+            }
+
+            res.status(200).json(medicine)
         }
     })
 }
