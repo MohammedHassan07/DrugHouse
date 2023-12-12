@@ -1,23 +1,22 @@
 const blogContent = (req, res) => {
 
     const conn = req.conn
-    const title = req.query.q
-    // console.log(title)
+    const drugName = req.query.q
+    // console.log(drugName)
 
-    const query = `SELECT * FROM Medicines WHERE category = "${title}"`;
+    const query = `SELECT * FROM Medicines WHERE drugName = "${drugName}"`;
 
     conn.query(query, (error, result) => {
 
         if (error) console.log(error.message)
 
         else {
-
             const response = result[0]
-            res.status(200).json(response)
+            // console.log(response)
 
+            res.status(200).json(response)
         }
     })
-
 }
 
 const blogContentUsingId = (req, res) => {
@@ -54,7 +53,7 @@ const blogByAuthor = (req, res) => {
         const author = req.query.author
 
         if (author === 'Select') query = `SELECT * FROM Medicines`
-        else query = `SELECT * FROM Medicines WHERE category = "${author}"`
+        else query = `SELECT * FROM Medicines WHERE drugName = "${author}"`
 
         // console.log(author)
 

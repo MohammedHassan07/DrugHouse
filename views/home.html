@@ -48,8 +48,8 @@
                     <Select id="author">
                         <option value="Select">Search </option>
 
-                        {{#each category}}
-                        <option value="{{this.category_Name}}">{{this.this.category_Name}}</option>
+                        {{#each medicines}}
+                        <option value="{{this.drugName}}">{{this.drugName}}</option>
                         {{/each}}
                     </Select>
                 </div>
@@ -71,7 +71,7 @@
             <div class="card">
                 <div class="drug-name">
 
-                    <p>{{this.category}}</p>
+                    <p>{{this.drugName}}</p>
                 </div>
 
                 <div class="border" style="height: 10em;">
@@ -134,9 +134,9 @@
         </div>
 
         <!-- lower -->
-        <div class="container lower" style="gap: 1.5em;">
+        <div class="lower">
 
-            <div class="box" style="max-width: 30vw;">
+            <div class="box">
 
                 <h3>Uses:</h3>
                 <p id="uses">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptatem ratione ullam
@@ -145,14 +145,14 @@
 
             </div>
 
-            <div class="box" style="max-width: 30vw">
+            <div class="box">
                 <h3>Adverse Effect:</h3>
                 <p id="adverse-effect">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum cumque vel
                     dolore reprehenderit illo nesciunt voluptate est error ducimus perferendis unde quidem ea, quia
                     commodi adipisci ipsa! Soluta, perspiciatis veritatis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, maiores.</p>
             </div>
 
-            <div class="box" style="max-width: 30vw">
+            <div class="box">
                 <h3>About Drug:</h3>
 
                 <p id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sint. Lorem

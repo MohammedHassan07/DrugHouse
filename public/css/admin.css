@@ -9,3 +9,22 @@ main {
 
     color: white;
 }
+
+form {
+
+    padding: 30px;
+    border-radius: 25px;
+    background-color: var(--bg-primary);
+    color: white;
+}
+
+form h2 {
+
+    background-color: var(--bg-primary);
+    color: white;
+}
+
+form input {
+
+    color: white;
+}

@@ -10,7 +10,7 @@ row.addEventListener('click', async (e) => {
     if (card) {
         const title = card.querySelector('p').innerText
 
-        // console.log('clicked', title)
+        console.log('clicked', title)
 
         const url = `http://localhost:3000/blog-content?q=${title}`
 
@@ -66,7 +66,7 @@ author.addEventListener('change', async () => {
         card.innerHTML = `
 
             <div class="drug-name">
-                <p>${element.Category}</p>
+                <p>${element.drugName}</p>
             </div>
 
             <div>

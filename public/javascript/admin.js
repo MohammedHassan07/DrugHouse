@@ -6,8 +6,7 @@ btnSubmit.addEventListener('click', (e) => {
     e.preventDefault()
 
     const drugName = document.getElementById('drug-name').value
-    const imgUrl = document.getElementById('img-url').value
-    const category = document.getElementById('category').value
+    // implement image upload
     const iupacName = document.getElementById('iupac-name').value
     const molecularFormula = document.getElementById('molecular-formula').value
     const Description = document.getElementById('description').value
@@ -15,7 +14,7 @@ btnSubmit.addEventListener('click', (e) => {
     const uses = document.getElementById('uses').value
     const adverseEffect = document.getElementById('adverse-effect').value
 
-    sendData(drugName, imgUrl, iupacName, molecularFormula, Description, mechanism, uses, adverseEffect, category, 'insert-data')
+    sendData(drugName, iupacName, molecularFormula, Description, mechanism, uses, adverseEffect, 'insert-data')
 })
 
 // check title
@@ -57,11 +56,11 @@ const oldTitle = document.getElementById('check-title')
 
 
 // function to send data
-const sendData = async (drugName, imgUrl, iupacName, molecularFormula, Description, mechanism, uses, adverseEffect, category, dataType) => {
+const sendData = async (drugName, iupacName, molecularFormula, Description, mechanism, uses, adverseEffect, dataType) => {
 
     const url = `http://localhost:3000/admin/${dataType}`
-    blogData = { drugName: drugName, ImgURL: imgUrl, iupacName: iupacName, molecularFormula: molecularFormula, Description: Description, mechanism: mechanism, uses: uses, adverseEffect: adverseEffect, category }
-    // console.log(blogData)
+    blogData = { drugName: drugName, iupacName: iupacName, molecularFormula: molecularFormula, Description: Description, mechanism: mechanism, uses: uses, adverseEffect: adverseEffect, }
+    console.log(blogData)
 
     const response = await fetch(url, {
 

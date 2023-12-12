@@ -19,16 +19,14 @@ const home = async (req, res) => {
     try {
 
         const connection = req.conn
-        const medicinesQuery = `SELECT Id, drugName, category, strucutural_Formula_URL  FROM Medicines`
-        const categoryQuery = "SELECT * FROM Category"
+        const medicinesQuery = `SELECT Id, drugName FROM Medicines`
 
         const medicines = await getData(connection, medicinesQuery)
-        const category = await getData(connection, categoryQuery)
 
         // console.log(medicines, category)
 
         // console.log(medicines, category)
-        res.render('home', { medicines: medicines, category: category })
+        res.render('home', { medicines: medicines })
 
 
     } catch (error) {

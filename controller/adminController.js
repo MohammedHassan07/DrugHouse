@@ -64,14 +64,15 @@ const insertData = (req, res) => {
 
     try {
 
-        const { drugName, imgUrl, iupacName, molecularFomrula, Description, Mechanism, uses, adverseEffect,category } = req.body
+        const { drugName, iupacName, molecularFomrula, Description, Mechanism, uses, adverseEffect } = req.body
 
-            console.log(req.body)
+            // console.log(req.body)
+
         const connection = req.conn
 
-        const myQuery = 'INSERT INTO Medicines (molecularFomula, IUPAC_NAME, Description, Mechanism, uses, adverse_Effect, strucutural_Formula_URL, Category, drugName) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        const myQuery = 'INSERT INTO Medicines (molecularFomula, IUPAC_NAME, Description, Mechanism, uses, adverse_Effect, drugName) VALUES (?, ?, ?, ?, ?, ?, ?)';
 
-        connection.query(myQuery, [drugName, imgUrl, iupacName, molecularFomrula, Description, Mechanism, uses, adverseEffect, category], (error, result) => {
+        connection.query(myQuery, [drugName, iupacName, molecularFomrula, Description, Mechanism, uses, adverseEffect], (error, result) => {
 
             if (error) console.log(error.message)
             else {
