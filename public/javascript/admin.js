@@ -1,7 +1,7 @@
 // insert data 
 const btnSubmit = document.getElementById('btn-submit')
 
-btnSubmit.addEventListener('click', (e) => {
+btnSubmit.addEventListener('click', async (e) => {
 
     e.preventDefault()
 
@@ -14,7 +14,19 @@ btnSubmit.addEventListener('click', (e) => {
     const uses = document.getElementById('uses').value
     const adverseEffect = document.getElementById('adverse-effect').value
 
-    sendData(drugName, iupacName, molecularFormula, Description, mechanism, uses, adverseEffect, 'insert-data')
+    const result = await sendData(drugName, iupacName, molecularFormula, Description, mechanism, uses, adverseEffect, 'insert-data')
+    console.log(result)
+
+    if (result.message === 'inserted') {
+
+        document.getElementById('drug-name').value = ''
+        document.getElementById('iupac-name').value = ''
+        document.getElementById('molecular-formula').value = ''
+        document.getElementById('description').value = ''
+        document.getElementById('mechanism').value = ''
+        document.getElementById('uses').value = ''
+        document.getElementById('adverse-effect').value = ''
+    }
 })
 
 // check title
@@ -60,7 +72,6 @@ const sendData = async (drugName, iupacName, molecularFormula, Description, mech
 
     const url = `http://localhost:3000/admin/${dataType}`
     blogData = { drugName: drugName, iupacName: iupacName, molecularFormula: molecularFormula, Description: Description, mechanism: mechanism, uses: uses, adverseEffect: adverseEffect, }
-    console.log(blogData)
 
     const response = await fetch(url, {
 
@@ -72,8 +83,8 @@ const sendData = async (drugName, iupacName, molecularFormula, Description, mech
     })
 
     const res = await response.json()
-    const result = res.result
-    return result
+
+    return res
 }
 
 // // update

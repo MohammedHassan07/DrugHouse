@@ -24,6 +24,7 @@ p {
 img {
 
     width: 27em;
-    height: 21em;    
-    object-fit: cover;
+    height: 16em;
+    object-fit: cover; 
+     margin-top: 3em;
 }
