@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <title>Drug Dictionary - {{medicine.drugName}}</title>
+</head>
+
+<body>
+
+    <main>
+
+        <!-- box for showing drugs details -->
+        <!-- <div id="drug-detail-box" medicines-data="{{medicines}}"> -->
+
+            <!-- upper -->
+            <div class="container upper">
+                <div class="box container flex-column" style="height: 30vh; padding: 14px;">
+
+                    <div style="  margin-bottom: 6px; ">
+                        <h3 id="drug-name" style="color: white;">{{medicine.drugName}}</h3>
+                    </div>
+
+                    <div style="  width: 13em;
+                height: 8em;">
+                        <img id="drug-img" src="data:image/jpeg;base64, {{medicine.drugImage}}" alt="">
+                    </div>
+
+                </div>
+
+                <div class="box mechanism" style="height: 30vh;">
+
+                    <h3>Mechanism and Action:</h3>
+                    <p id="mechanism">{{medicine.Mechanism}}</p>
+                </div>
+            </div>
+
+            <!-- middle -->
+            <div class="mid-cotainer">
+                
+            <div class="box middle">
+                <div>
+                    <h3>IUPAC Name:</h3>
+                </div>
+
+                <div>
+                    <p id="iupacName">{{medicine.IUPAC_Name}}</p>
+                </div>
+            </div>
+
+            <div class="middle box">
+                <div>
+                    <h3>Molecular Formula:</h3>
+                </div>
+                <div>
+
+                    <p id="molecular-formula">{{medicine.molecularFomula}}</p>
+                </div>
+            </div>
+            
+        </div>
+
+            <!-- lower -->
+            <div class="lower">
+
+                <div class="box">
+
+
+                    <h3>Uses:</h3>
+                    <p id="uses">{{medicine.Uses}}</p>
+                </div>
+
+                <div class="box">
+                    <h3>Adverse Effect:</h3>
+                    <p id="adverse-effect">{{medicine.adverse_Effect}}</p>
+                </div>
+
+                <div class="box">
+                    <h3>About Drug:</h3>
+
+                    <p id="description">{{medicine.Description}}</p>
+
+                </div>
+
+            </div>
+            <!-- <button id="close-box">X</button> -->
+        <!-- </div> -->
+
+    </main>
+
+</body>
+
+</html>

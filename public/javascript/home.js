@@ -13,32 +13,36 @@ row.addEventListener('click', async (e) => {
 
         console.log('clicked', title)
 
-        const url = `http://localhost:3000/blog-content?q=${title}`
+        // const url = `http://localhost:3000/blog-content?q=${title}`
 
-        const res = await getData(url)
+        // const res = await getData(url)
 
-        // console.log(typeof res)
-        console.log(res)
+        // // console.log(typeof res)
+        // console.log(res)
 
-        const drugName = document.getElementById('drug-name')
-        drugName.innerHTML = res.drugName
+        // const drugName = document.getElementById('drug-name')
+        // drugName.innerHTML = res.drugName
 
-        const img = document.getElementById('drug-img').setAttribute('src', `data:image/png;base64, ${res.drugImage}`)
-        const mechanism = document.getElementById('mechanism').innerHTML = res.Mechanism
-        const iupacName = document.getElementById('iupacName').innerHTML = res.IUPAC_Name
-        const molecularFormula = document.getElementById('molecular-formula').innerHTML = res.molecularFomula
-        const uses = document.getElementById('uses').innerHTML = res.Uses
-        const adverseEffect = document.getElementById('adverse-effect').innerHTML = res.adverse_Effect
-        const description = document.getElementById('description').innerHTML = res.Description
+        // const img = document.getElementById('drug-img').setAttribute('src', `data:image/png;base64, ${res.drugImage}`)
+        // const mechanism = document.getElementById('mechanism').innerHTML = res.Mechanism
+        // const iupacName = document.getElementById('iupacName').innerHTML = res.IUPAC_Name
+        // const molecularFormula = document.getElementById('molecular-formula').innerHTML = res.molecularFomula
+        // const uses = document.getElementById('uses').innerHTML = res.Uses
+        // const adverseEffect = document.getElementById('adverse-effect').innerHTML = res.adverse_Effect
+        // const description = document.getElementById('description').innerHTML = res.Description
 
-        detailBox.style.display = 'block'
-        const closeBox = document.getElementById('close-box').addEventListener('click', (e) => {
+        // detailBox.style.display = 'block'
+        // const closeBox = document.getElementById('close-box').addEventListener('click', (e) => {
 
-            e.preventDefault()
+        //     e.preventDefault()
 
-            console.log('closed')
-            detailBox.style.display = 'none'
-        })
+        //     console.log('closed')
+        //     detailBox.style.display = 'none'
+        // })
+
+        // New for drug
+        
+        window.open(`http://localhost:3000/blog-content?q=${title}`, '_blank')
     }
 })
 

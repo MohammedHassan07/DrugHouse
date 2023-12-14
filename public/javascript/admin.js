@@ -71,7 +71,10 @@ const oldTitle = document.getElementById('check-title')
 const sendData = async (drugName, iupacName, molecularFormula, Description, mechanism, uses, adverseEffect, dataType) => {
 
     const url = `http://localhost:3000/admin/${dataType}`
-    blogData = { drugName: drugName, iupacName: iupacName, molecularFormula: molecularFormula, Description: Description, mechanism: mechanism, uses: uses, adverseEffect: adverseEffect, }
+
+    blogData = { drugName: drugName, iupacName: iupacName, molecularFomula: molecularFormula, Description: Description, mechanism: mechanism, uses: uses, adverseEffect: adverseEffect, }
+
+    // console.log(blogData)
 
     const response = await fetch(url, {
 

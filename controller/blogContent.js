@@ -39,7 +39,8 @@ const blogContent = (req, res) => {
                 console.log(error.message)
             }
 
-            res.status(200).json(medicine)
+            // console.log(medicine)
+            res.render('detail', {medicine})
         }
     })
 }
