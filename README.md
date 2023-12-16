@@ -15,7 +15,7 @@ npm install
 
 ## Authors
 Mohammed Hassan (BE Computer Science Engineering) \
-linkedIn: <a href="https://www.linkedin.com/in/mohammed-hassan-343b00215">LinkedIn</a>
+linkedIn: <a href="https://www.linkedin.com/in/mohammed-hassan-343b00215" target="_blank">LinkedIn</a>
 
 
 
