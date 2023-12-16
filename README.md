@@ -2,6 +2,9 @@
 
 Drug Dictinary is a website for pharmacy students, it contains more than 200 drug with its molecular formula, IUPAC name, structual formula etc.
 
+### Note
+In this project I upload only few medicine details for data security
+
 ## Installation
 
 Use the package manager [npm] to install the packages.
