@@ -12,13 +12,15 @@ DrugHouse is a web application designed to manage and display detailed informati
 ## Tech Stack
 
 - **Backend**:
-    - ![Node.js](https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg) Node.js
-    - ![Express.js](https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png) Express.js
-    - ![MySQL](https://upload.wikimedia.org/wikipedia/commons/6/69/MySQL_logo.png) MySQL
+     ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+     ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+     ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 - **Frontend**:
-    - ![HTML5](https://upload.wikimedia.org/wikipedia/commons/3/39/HTML5_logo_and_wordmark.svg) HTML5
-    - ![CSS3](https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg) CSS3
-    - ![Handlebars](https://upload.wikimedia.org/wikipedia/commons/8/8b/Handlebars.js_logo.svg) Handlebars (HBS)
+     ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+     ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+     ![Handlebars](https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebars&logoColor=white)
+
+
 
 ## Contributing
 
